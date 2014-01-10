@@ -1,1 +1,1 @@
-sudo apt-get install build-essential openssh-server vim screen curl tree git mercurial
+sudo apt-get install build-essential openssh-server vim screen curl tree p7zip-full git mercurial
