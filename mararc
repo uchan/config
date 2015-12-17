@@ -1,0 +1,13 @@
+ipv4_bind_addresses = "xxx.xxx.xxx.xxx"
+timestamp_type = 4
+random_seed_file = "secret.txt"
+hide_disclaimer = "YES"
+verbose_level=1
+csv2={}
+csv2["."]="dns.txt"
+#inside "dns.txt:
+#somename. xxx.xxx.xxx.xxx
+
+### not tested
+#upstream_servers = {}
+#upstream_servers["."] = "xxx.xxx.xxx.xxx, yyy.yyy.yyy.yyy"
