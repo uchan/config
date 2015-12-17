@@ -1,0 +1,28 @@
+[init]
+sudo apt-get install pptp-linux
+
+VSERVER="vpnserver.com"
+VUSER="username"
+VPASS="password"
+VNAME="myvpn"   # connection name
+
+sudo pptpsetup --create $VNAME --server $VSERVER --username $VUSER --password $VPASS --encrypt
+
+
+[connect_in_screen]
+sudo pon $VNAME nodetach
+
+
+[add route]
+sudo ip route del default
+sudo ip route add default dev ppp0  #maybe ppp1/ppp2...
+
+
+[disconnect]
+#ctrl-C in connect screen
+
+[del route]
+sudo ip route add default via 192.168.1.1 #maybe 192.168.2.1 192.168.3.1 ...
+
+[ssh-forward]
+ssh -ND 192.168.1.100:3333 localhost   #maybe 192.168.2.1:12345 192.168.3.1:54321 ...
