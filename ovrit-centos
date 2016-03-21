@@ -1,0 +1,15 @@
+[install]
+sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+sudo yum install ovirt-engine-setup-plugin-allinone
+sudo engine-setup
+
+[upload iso]
+## setup root ssh login
+sudo ovirt-iso-uploader --ssh-user=root -i ISO_DOMAIN xxx.iso
+
+[run cli]
+ovirt-shell -I -l "https://localhost/ovirt-engine/api" -u admin@internal
+
+[cpu freq]
+sudo yum install cpupowerutils
+sudo cpupower frequency-set --governor ondemand
